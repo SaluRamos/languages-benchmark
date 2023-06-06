@@ -1,0 +1,14 @@
+Python 3.11.3:
+teste fib:  273.0 ms
+teste geometry: 446.0 ms
+teste data: 28.0 ms
+
+Java 20.0.1:
+teste fib: 11 ms
+teste geometry: 80 ms
+teste data: 170 ms
+
+C++:
+teste fib: 33 ms
+teste geometry: 90 ms
+teste data: 1662 ms
