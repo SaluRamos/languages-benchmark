@@ -1,4 +1,5 @@
 import string
+import random
 
 def generate_data():
     uppercase_letters = list(string.ascii_uppercase)

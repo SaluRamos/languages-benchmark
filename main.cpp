@@ -6,7 +6,7 @@
 #include <random>
 #include <chrono>
 #include <string>
-// #include "openssl/md5.h"
+// #include <openssl/md5.h>
 
 using namespace std;
 using namespace std::chrono;
@@ -31,7 +31,7 @@ int fib(int n) {
 void testGeometry(double vector3_1[3], double vector3_2[3], double radius1, double radius2, double radius3) {
     double distance = std::sqrt(std::pow(vector3_2[0] - vector3_1[0], 2) + std::pow(vector3_2[1] - vector3_1[1], 2) + std::pow(vector3_2[2] - vector3_1[2], 2));
     double distance_between_centers = std::sqrt(std::pow(vector3_2[0] - vector3_1[0], 2) + std::pow(vector3_2[1] - vector3_1[1], 2) + std::pow(vector3_2[2] - vector3_1[2], 2));
-    double sphere_volume = (4.0 / 3.0) * M_PI * std::pow(radius3, 3);
+    double sphere_volume = (4.0 / 3.0) * 3.1415 * std::pow(radius3, 3);
 }
 
 std::string loadData() {
@@ -51,7 +51,7 @@ std::string loadData() {
 
 int main() {
     high_resolution_clock::time_point startFib = high_resolution_clock::now();
-    int resultFib = fib(32);
+    int resultFib = fib(34);
     high_resolution_clock::time_point finishFib = high_resolution_clock::now();
 
 

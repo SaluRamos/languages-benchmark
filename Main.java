@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 public class Main {
     public static void main(String[] args) {
         long startFib = System.currentTimeMillis();
-        int resultFib = fib(32);
+        fib(34);
         long finishFib = System.currentTimeMillis();
 
         double[] vector3_1 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
