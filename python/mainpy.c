@@ -10,7 +10,7 @@ static PyObject *method_fputs(PyObject *self, PyObject *args) {
         return NULL;
     }
 
-    FILE *fp = fopen(filename, "w");
+    FILE *fp = fopen(filename, "w+");
     bytes_copied = fputs(str, fp);
     fclose(fp);
 

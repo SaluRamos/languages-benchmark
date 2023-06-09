@@ -32,29 +32,32 @@ def load_data():
     except FileNotFoundError:
         print("Arquivo 'data.txt' não encontrado.")
 
-# import meuModulo
-# resultado = meuModulo.calcular_quadrado(5)
-# print(resultado)  # Saída: 25
+import fputs
 
-start_fib = time.time()
-result_fib = fib(34)
-finish_fib = time.time()
+fputs.fputs("Real Python!", "write.txt")
+13
+with open("write.txt", "r") as f:
+    print(f.read())
 
-vector3_1 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))
-vector3_2 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))
-radius1 = random.uniform(1, 10)
-radius2 = random.uniform(1, 10)
-radius3 = random.uniform(1, 10)
-start_geometry = time.time()
-for i in range(1000000):
-    test_geometry(vector3_1, vector3_2, radius1, radius2, radius3)
-finish_geometry = time.time()
+# start_fib = time.time()
+# result_fib = fib(34)
+# finish_fib = time.time()
 
-start_data = time.time()
-data = load_data()
-finish_data = time.time()
-print(f"data hash = {md5(data)}")
-print("python:")
-print(f"teste fib: {round((finish_fib-start_fib)*1000, 0)} ms")
-print(f"teste geometry: {round((finish_geometry-start_geometry)*1000, 0)} ms")
-print(f"teste data: {round((finish_data-start_data)*1000, 0)} ms\n")
+# vector3_1 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))
+# vector3_2 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))
+# radius1 = random.uniform(1, 10)
+# radius2 = random.uniform(1, 10)
+# radius3 = random.uniform(1, 10)
+# start_geometry = time.time()
+# for i in range(1000000):
+#     test_geometry(vector3_1, vector3_2, radius1, radius2, radius3)
+# finish_geometry = time.time()
+
+# start_data = time.time()
+# data = load_data()
+# finish_data = time.time()
+# print(f"data hash = {md5(data)}")
+# print("python:")
+# print(f"teste fib: {round((finish_fib-start_fib)*1000, 0)} ms")
+# print(f"teste geometry: {round((finish_geometry-start_geometry)*1000, 0)} ms")
+# print(f"teste data: {round((finish_data-start_data)*1000, 0)} ms\n")
