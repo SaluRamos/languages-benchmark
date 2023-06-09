@@ -32,6 +32,9 @@ def load_data():
     except FileNotFoundError:
         print("Arquivo 'data.txt' não encontrado.")
 
+# import meuModulo
+# resultado = meuModulo.calcular_quadrado(5)
+# print(resultado)  # Saída: 25
 
 start_fib = time.time()
 result_fib = fib(34)

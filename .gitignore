@@ -5,3 +5,5 @@ main.spec
 build/
 dist/
 data.txt
+a.exe
+.vs/
