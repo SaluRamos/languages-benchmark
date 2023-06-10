@@ -1,6 +1,0 @@
-build.py
-salu_benchmark.c
-salu_benchmark.egg-info/PKG-INFO
-salu_benchmark.egg-info/SOURCES.txt
-salu_benchmark.egg-info/dependency_links.txt
-salu_benchmark.egg-info/top_level.txt

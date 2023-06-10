@@ -7,3 +7,11 @@ dist/
 data.txt
 a.exe
 .vs/
+python/build/
+python/dist/
+python/fputs.egg-info/
+python/write.txt
+python/data.txt
+c++/data.txt
+c++/main
+java/data.txt

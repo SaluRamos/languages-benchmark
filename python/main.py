@@ -33,12 +33,15 @@ def load_data():
         print("Arquivo 'data.txt' não encontrado.")
 
 # import fib
+sys.path.append('build/lib.linux-x86_64-3.10')
+sys.path.append('build/temp.linux-x86_64-3.10')
 import salubenchmark
 
 start_fib = time.time()
 # result_fib = fib(34)
-# result_fib = fib(34)
+result_fib = salubenchmark.fib(34)
 finish_fib = time.time()
+print(f"resultado fib = {result_fib}")
 
 vector3_1 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))
 vector3_2 = (random.uniform(1, 10), random.uniform(1, 10), random.uniform(1, 10))

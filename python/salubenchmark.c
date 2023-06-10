@@ -31,15 +31,6 @@ static PyObject *method_fib(PyObject *self, PyObject *args) {
     return Py_BuildValue("i", result);
 }
 
-
-
-
-
-
-
-
-
-
 static PyMethodDef salubenchmarkMethods[] = {
     {"fputs", method_fputs, METH_VARARGS, "Python interface for fputs C library function"},
     {"fib", method_fib, METH_VARARGS, "Calculate fibonacci"},
