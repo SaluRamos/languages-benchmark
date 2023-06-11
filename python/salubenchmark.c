@@ -2,12 +2,12 @@
 #include <math.h>
 
 double generateRandomNumber(double min, double max) {
-    double scale = rand() / (double)RAND_MAX;  // valor entre 0 e 1
+    double scale = rand() / (double)RAND_MAX;
     return min + scale * (max - min);
 }
 
 void generateRandomVectors(double vector3_1[3], double vector3_2[3]) {
-    srand(time(NULL));  // inicializa a semente do gerador de números aleatórios
+    srand(time(NULL));
     for (int i = 0; i < 3; i++) {
         vector3_1[i] = generateRandomNumber(1.0, 10.0);
         vector3_2[i] = generateRandomNumber(1.0, 10.0);

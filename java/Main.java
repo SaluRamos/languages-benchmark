@@ -28,10 +28,10 @@ public class Main {
         long finishData = System.currentTimeMillis();
         System.out.println("data hash = " + md5(resultData));
 
-        System.out.println("Java:");
-        System.out.println("teste fib: " + (finishFib - startFib) + " ms");
-        System.out.println("teste geometry: " + (finishGeometry - startGeometry) + " ms");
-        System.out.println("teste data: " + (finishData - startData) + " ms\n");
+        System.out.println("Java 20.0.1 (2023-04-18):");
+        System.out.println("teste fibonacci: " + (finishFib - startFib) + " ms");
+        System.out.println("teste calculos geométricos: " + (finishGeometry - startGeometry) + " ms");
+        System.out.println("teste leitura de arquivo 90MB: " + (finishData - startData) + " ms\n");
     }
 
     public static int fib(int n) {

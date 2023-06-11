@@ -77,10 +77,10 @@ int main() {
     duration<double, milli> timeElapsedFib = finishFib - startFib;
     duration<double, milli> timeElapsedGeometry = finishGeometry - startGeometry;
     duration<double, milli> timeElapsedData = finishData - startData;
-    std::cout << "C++:" << std::endl;
-    std::cout << "teste fib: " << static_cast<long>(timeElapsedFib.count()) << " ms" << std::endl;
-    std::cout << "teste geometry: " << static_cast<long>(timeElapsedGeometry.count()) << " ms" << std::endl;
-    std::cout << "teste data: " << static_cast<long>(timeElapsedData.count()) << " ms" << std::endl;
+    std::cout << "c++ gcc 8.3.0:" << std::endl;
+    std::cout << "teste fibonacci: " << static_cast<long>(timeElapsedFib.count()) << " ms" << std::endl;
+    std::cout << "teste de calculos geométricos: " << static_cast<long>(timeElapsedGeometry.count()) << " ms" << std::endl;
+    std::cout << "teste leitura de arquivo 90MB: " << static_cast<long>(timeElapsedData.count()) << " ms" << std::endl;
 
     return 0;
 }

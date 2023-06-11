@@ -4,6 +4,9 @@ data.txt
 .vs/
 .vscode/
 python/build/
-python/dist
+python/dist/
+python/obfdist/
+python/.pyarmor/
+python/main.spec
 c++/main.exe
 java/Main.class

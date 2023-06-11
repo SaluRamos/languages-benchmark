@@ -1,3 +1,4 @@
+@REM realiza o teste em todas as linguagens
 cls
 javac java/Main.java
 g++ c++/main.cpp -o c++/main -lssl -lcrypto
