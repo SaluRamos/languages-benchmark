@@ -11,12 +11,6 @@ def md5(string):
     md5_hex = md5_hash.hexdigest()
     return md5_hex
 
-# def fib(n):
-#     if(n == 0 or n == 1):
-#         return n
-#     else:
-#         return fib(n-1) + fib(n-2)
-
 def test_geometry(vector3_1, vector3_2, radius1, radius2, radius3):
     distance = math.sqrt((vector3_2[0] - vector3_1[0])**2 + (vector3_2[1] - vector3_1[1])**2 + (vector3_2[2] - vector3_1[2])**2)
     distance_between_centers = math.sqrt((vector3_2[0] - vector3_1[0])**2 + (vector3_2[1] - vector3_1[1])**2 + (vector3_2[2] - vector3_1[2])**2)
@@ -24,21 +18,25 @@ def test_geometry(vector3_1, vector3_2, radius1, radius2, radius3):
 
 def load_data():
     current_dir = os.path.dirname(sys.argv[0])
-    data_file_path = os.path.join(current_dir, 'data.txt')
     try:
+        data_file_path = os.path.join(current_dir, '../data.txt')
         with open(data_file_path, "r") as f:
             data = f.read()
             return data
-    except FileNotFoundError:
-        print("Arquivo 'data.txt' não encontrado.")
+    except:
+        data_file_path = os.path.join(current_dir, '../../../data.txt')
+        with open(data_file_path, "r") as f:
+            data = f.read()
+            return data
+
 
 # import fib
-sys.path.append('build/lib.linux-x86_64-3.10')
-sys.path.append('build/temp.linux-x86_64-3.10')
+sys.path.append('build/lib.win-amd64-cpython-311')
+sys.path.append('../../build/lib.win-amd64-cpython-311')
+sys.path.append('python/build/lib.win-amd64-cpython-311')
 import salubenchmark
 
 start_fib = time.time()
-# result_fib = fib(34)
 result_fib = salubenchmark.fib(34)
 finish_fib = time.time()
 print(f"resultado fib = {result_fib}")
@@ -50,7 +48,7 @@ radius2 = random.uniform(1, 10)
 radius3 = random.uniform(1, 10)
 start_geometry = time.time()
 for i in range(1000000):
-    test_geometry(vector3_1, vector3_2, radius1, radius2, radius3)
+    salubenchmark.geometry(vector3_1, vector3_2, radius1, radius2, radius3)
 finish_geometry = time.time()
 
 start_data = time.time()

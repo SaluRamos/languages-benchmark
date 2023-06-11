@@ -6,11 +6,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         long startFib = System.currentTimeMillis();
-        fib(34);
+        int resultFib = fib(34);
         long finishFib = System.currentTimeMillis();
+        System.out.println("result fib = " + resultFib);
 
         double[] vector3_1 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
         double[] vector3_2 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
@@ -70,7 +71,7 @@ public class Main {
     public static String loadData() {
         StringBuilder data = new StringBuilder();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("data.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("../data.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 data.append(line);

@@ -1,2 +1,0 @@
-sudo chmod a+x exec.sh (mac)
-sudo chmod a+rwx path (linux)

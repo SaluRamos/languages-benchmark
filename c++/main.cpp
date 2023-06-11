@@ -11,14 +11,14 @@
 using namespace std;
 using namespace std::chrono;
 
-// std::string md5(const std::string& str) {
-//     unsigned char digest[MD5_DIGEST_LENGTH];
-//     MD5((unsigned char*)str.c_str(), str.length(), digest);
-//     char md5Hex[MD5_DIGEST_LENGTH * 2 + 1];
-//     for (int i = 0; i < MD5_DIGEST_LENGTH; i++)
-//         sprintf(&md5Hex[i * 2], "%02x", (unsigned int)digest[i]);
-//     return std::string(md5Hex);
-// }
+std::string md5(const std::string& input) {
+    unsigned char digest[MD5_DIGEST_LENGTH];
+    MD5((const unsigned char*)input.c_str(), input.length(), digest);
+    char md5String[33];
+    for (int i = 0; i < 16; ++i)
+        sprintf(&md5String[i * 2], "%02x", (unsigned int)digest[i]);
+    return std::string(md5String);
+}
 
 int fib(int n) {
     if (n == 0 || n == 1) {
@@ -36,12 +36,12 @@ void testGeometry(double vector3_1[3], double vector3_2[3], double radius1, doub
 
 std::string loadData() {
     std::ifstream file;
-    file.open("data.txt", std::fstream::in | std::fstream::binary);
+    file.open("../data.txt", std::fstream::in | std::fstream::binary);
     std::string data;
 
     if (file.is_open()) {
-        while ( !file.eof() ) { // keep reading until end-of-file
-            file >> data; // sets EOF flag if no value found
+        while ( !file.eof() ) {
+            file >> data;
         }
         file.close();
     }
@@ -53,7 +53,7 @@ int main() {
     high_resolution_clock::time_point startFib = high_resolution_clock::now();
     int resultFib = fib(34);
     high_resolution_clock::time_point finishFib = high_resolution_clock::now();
-
+    std::cout << "result fib = " << resultFib << std::endl;
 
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -72,7 +72,7 @@ int main() {
     high_resolution_clock::time_point startData = high_resolution_clock::now();
     std::string resultData = loadData();
     high_resolution_clock::time_point finishData = high_resolution_clock::now();
-    // std::cout << "data hash = " << md5(resultData) << std::endl;
+    std::cout << "data hash = " << md5(resultData) << std::endl;
 
     duration<double, milli> timeElapsedFib = finishFib - startFib;
     duration<double, milli> timeElapsedGeometry = finishGeometry - startGeometry;
