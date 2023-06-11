@@ -28,10 +28,11 @@ int fib(int n) {
     }
 }
 
-void testGeometry(double vector3_1[3], double vector3_2[3], double radius1, double radius2, double radius3) {
+double testGeometry(double vector3_1[3], double vector3_2[3], double radius) {
     double distance = std::sqrt(std::pow(vector3_2[0] - vector3_1[0], 2) + std::pow(vector3_2[1] - vector3_1[1], 2) + std::pow(vector3_2[2] - vector3_1[2], 2));
     double distance_between_centers = std::sqrt(std::pow(vector3_2[0] - vector3_1[0], 2) + std::pow(vector3_2[1] - vector3_1[1], 2) + std::pow(vector3_2[2] - vector3_1[2], 2));
-    double sphere_volume = (4.0 / 3.0) * 3.1415 * std::pow(radius3, 3);
+    double sphere_volume = (4.0 / 3.0) * 3.1415 * std::pow(radius, 3);
+    return distance + distance_between_centers + sphere_volume;
 }
 
 std::string loadData() {
@@ -51,21 +52,20 @@ std::string loadData() {
 
 int main() {
     high_resolution_clock::time_point startFib = high_resolution_clock::now();
-    int resultFib = fib(34);
+    int resultFib = fib(40);
     high_resolution_clock::time_point finishFib = high_resolution_clock::now();
     std::cout << "result fib = " << resultFib << std::endl;
 
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(1.0, 10.0);
-    double vector3_1[3] = { dis(gen), dis(gen), dis(gen) };
-    double vector3_2[3] = { dis(gen), dis(gen), dis(gen) };
-    double radius1 = dis(gen);
-    double radius2 = dis(gen);
-    double radius3 = dis(gen);
     high_resolution_clock::time_point startGeometry = high_resolution_clock::now();
-    for (int i = 0; i < 1000000; i++) {
-        testGeometry(vector3_1, vector3_2, radius1, radius2, radius3);
+    double geometrySum = 0;
+    for(int i = 0; i < 10000000; i++){
+        double vector3_1[3] = { dis(gen), dis(gen), dis(gen) };
+        double vector3_2[3] = { dis(gen), dis(gen), dis(gen) };
+        double radius = dis(gen);
+        geometrySum += testGeometry(vector3_1, vector3_2, radius);
     }
     high_resolution_clock::time_point finishGeometry = high_resolution_clock::now();
 

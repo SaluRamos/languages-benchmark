@@ -9,18 +9,17 @@ public class Main {
 
     public static void main(String[] args) {
         long startFib = System.currentTimeMillis();
-        int resultFib = fib(34);
+        int resultFib = fib(40);
         long finishFib = System.currentTimeMillis();
         System.out.println("result fib = " + resultFib);
 
-        double[] vector3_1 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
-        double[] vector3_2 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
-        double radius1 = randomUniform(1, 10);
-        double radius2 = randomUniform(1, 10);
-        double radius3 = randomUniform(1, 10);
         long startGeometry = System.currentTimeMillis();
-        for (int i = 0; i < 1000000; i++) {
-            testGeometry(vector3_1, vector3_2, radius1, radius2, radius3);
+        double geometrySum = 0;
+        for (int i = 0; i < 10000000; i++) {
+            double[] vector3_1 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
+            double[] vector3_2 = {randomUniform(1, 10), randomUniform(1, 10), randomUniform(1, 10)};
+            double radius = randomUniform(1, 10);
+            geometrySum += testGeometry(vector3_1, vector3_2, radius);
         }
         long finishGeometry = System.currentTimeMillis();
 
@@ -43,10 +42,11 @@ public class Main {
         }
     }
 
-    public static void testGeometry(double[] vector3_1, double[] vector3_2, double radius1, double radius2, double radius3) {
+    public static double testGeometry(double[] vector3_1, double[] vector3_2, double radius) {
         double distance = Math.sqrt(Math.pow(vector3_2[0] - vector3_1[0], 2) + Math.pow(vector3_2[1] - vector3_1[1], 2) + Math.pow(vector3_2[2] - vector3_1[2], 2));
         double distanceBetweenCenters = Math.sqrt(Math.pow(vector3_2[0] - vector3_1[0], 2) + Math.pow(vector3_2[1] - vector3_1[1], 2) + Math.pow(vector3_2[2] - vector3_1[2], 2));
-        double sphereVolume = (4.0 / 3.0) * Math.PI * Math.pow(radius3, 3);
+        double sphereVolume = (4.0 / 3.0) * 3.1415 * Math.pow(radius, 3);
+        return distance + distanceBetweenCenters + sphereVolume;
     }
 
     public static String md5(String str) {
